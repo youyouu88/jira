@@ -1,0 +1,43 @@
+<header></header>
+<div class="ticket-form">
+  <h2>Create a Ticket</h2>
+
+  <!-- Title -->
+  <label for="title">Title of the ticket</label>
+  <input id="title" type="text" [(ngModel)]="ticket.title" placeholder="title" />
+
+  <!-- Description -->
+  <label for="description">Description</label>
+  <textarea id="description" [(ngModel)]="ticket.description" placeholder="description"></textarea>
+
+  <!-- Assigned to -->
+  <label>Assigned to</label>
+  <div class="assigned">
+    <select [(ngModel)]="ticket.department">
+      <option value="">Department</option>
+      <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+    </select>
+
+    <select [(ngModel)]="ticket.employee">
+      <option value="">Employees</option>
+      <option *ngFor="let emp of employees" [value]="emp">{{ emp }}</option>
+    </select>
+  </div>
+
+  <!-- File attachment -->
+  <label>Attached files</label>
+  <div class="file-box" (click)="fileInput.click()">
+    <input type="file" #fileInput (change)="onFileSelected($event)" hidden multiple />
+    <span *ngIf="files.length === 0">+</span>
+    <ul *ngIf="files.length > 0">
+      <li *ngFor="let file of files">{{ file.name }}</li>
+    </ul>
+  </div>
+
+  <!-- Buttons -->
+  <div class="actions">
+    <button class="send" (click)="setTicket()">Send</button>
+    <button class="abandon" (click)="abandon()">Abandon</button>
+  </div>
+</div>
+  

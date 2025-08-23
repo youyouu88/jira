@@ -1,0 +1,22 @@
+TICKET :
+use ('jira');
+db.createCollection('ticket');
+db.ticket.insertOne(
+    {title:"Accéder à la base de donnée",assignedBy:"059576",assignedTo:"099576",
+        priority:"medium",status:"open",
+        description:"Dans le cadre de mon projet, je dois accéder aux tables des produits.Bien que je sois censé(e) avoir les droits nécessaires, le système m'affiche un message indiquant que l'accès à ces documents est impossible."
+        ,created:new Date('2023-01-01'),
+    }
+);
+
+EMPLOYEE : 
+use ('jira');
+db.createCollection('employee');
+db.employee.insertOne(
+    {id:"059003",FnameEmp:"abcd",LnameEmp:"efg",
+        emailEmp:"abcdEFG@gmail.com",phoneEmp:"123456789",
+        addressEmp:"123 Main St, City, Country",hireDateEmp:new Date('2023-01-01'),
+        jobTitleEmp:"Software Engineer",salaryEmp:60000,departmentIDEmp:"02",
+        passwordEmp:"password123",role:1
+    }
+);

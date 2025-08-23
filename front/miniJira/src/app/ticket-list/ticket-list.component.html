@@ -1,0 +1,13 @@
+<header></header>
+<div class="container">
+  <ng-container *ngIf="Tickets; else noTickets">
+    <div class="container-tiket">
+      <div *ngFor="let tt of Tickets" (click)="allerVersTicket(ticket.idT)">
+        
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #noTickets>
+    <p>Aucune recette trouvée pour cette catégorie.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,31 @@
+<header></header>
+<div class="container">
+    <div class="title">Due soon : </div>
+    <div class="container">
+        <div id="bb" class="card mb-3" 
+        *ngFor="let ticket of tickets"
+        [ngClass]="{'border-success': ticket.status === 'done',
+        'border-warning': ticket.status === 'in-progress',
+        'border-danger': ticket.status === 'pending'}" >
+        
+            <div class="card-body">
+                <h5 class="card-title">Connexion au réseau</h5>
+
+                <div class="d-flex align-items-center mb-2">
+                <img id="img"
+                    [src]="" 
+                    alt="User" 
+                    class="rounded-circle me-2" 
+                >
+                <span>{{ ticket.assignedTo }}</span>
+                </div>
+
+                <p class="card-text">
+                <strong>Description :</strong><br>
+                {{ ticket.desc }}
+                </p>
+            </div>
+        </div>
+    
+    </div>
+</div>

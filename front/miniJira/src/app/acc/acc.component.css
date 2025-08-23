@@ -1,0 +1,9 @@
+#img{
+    width: 30px; 
+    height: 30px; 
+    object-fit: cover;
+}
+
+#bb{
+    max-width: 18rem;
+}
