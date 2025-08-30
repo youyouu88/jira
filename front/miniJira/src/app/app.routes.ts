@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
-import { HeaderComponent } from './header/header.component';
 import { AccComponent } from './acc/acc.component';
+import { AjTicComponent } from './aj-tic/aj-tic.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 export const routes: Routes = [
-    {path:'',component:AccComponent},
-    {path:'ticket-list/:status',component:TicketListComponent},
+    {path:'acceuil/soon',component:AccComponent},
+    {path:'ticket/status/:status',component:TicketListComponent},
+    {path:'ticket/id/:id',component:TicketComponent},
+    {path :'addT', component:AjTicComponent},
     {path: '**', redirectTo: ''}
 ];

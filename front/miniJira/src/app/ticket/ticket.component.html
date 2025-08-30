@@ -1,0 +1,26 @@
+<div class="ticket-card">
+    <div class="ticket-header">
+      <h1>{{ticket.title}}</h1>
+    </div>
+
+    <div class="ticket-content">
+      <div class="ticket-description">
+        <p>{{ticket.description}}</p>
+      </div>
+
+      <div class="ticket-meta">
+        <p><span>Assigned by:</span> {{ticket.assignedBy}}</p>
+        <p><span>Status:</span> {{ticket.status}} </p>
+      </div>
+    </div>
+
+    <div class="ticket-footer">
+      <small>Créé le : {{ticket.created}}</small>
+      <div class="actions">
+        <button class="btn modify">✏️ Modify</button>
+        <button class="btn delete">🗑️ Delete</button>
+      </div>
+    </div>
+  </div>
+
+

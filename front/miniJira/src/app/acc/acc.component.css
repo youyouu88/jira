@@ -7,3 +7,11 @@
 #bb{
     max-width: 18rem;
 }
+
+.border-ip {
+  border: 2px solid #A81BB7;
+}
+
+.border-o{
+    border : 2px solid #F0A00D
+}

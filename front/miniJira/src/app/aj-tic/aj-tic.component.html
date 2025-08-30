@@ -1,43 +1,53 @@
-<header></header>
 <div class="ticket-form">
-  <h2>Create a Ticket</h2>
+  <form (ngSubmit)="sendT()">
 
-  <!-- Title -->
-  <label for="title">Title of the ticket</label>
-  <input id="title" type="text" [(ngModel)]="ticket.title" placeholder="title" />
+    <h2>Create a Ticket</h2>
 
-  <!-- Description -->
-  <label for="description">Description</label>
-  <textarea id="description" [(ngModel)]="ticket.description" placeholder="description"></textarea>
+    <!-- Title -->
+    <label class="form-label" for="title">Title of the ticket</label>
+    <input required name="title" id="title" type="text" [(ngModel)]="ticket.title" placeholder="title" />
 
-  <!-- Assigned to -->
-  <label>Assigned to</label>
-  <div class="assigned">
-    <select [(ngModel)]="ticket.department">
-      <option value="">Department</option>
-      <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
-    </select>
+    <!-- Description -->
+    <label class="form-label" for="description">Description</label>
+    <textarea required name="description" id="description" [(ngModel)]="ticket.description" placeholder="description"></textarea>
 
-    <select [(ngModel)]="ticket.employee">
-      <option value="">Employees</option>
-      <option *ngFor="let emp of employees" [value]="emp">{{ emp }}</option>
-    </select>
-  </div>
+    <!--dueTo-->
+    <label class="form-label" for="dueTo">Due To</label>
+    <input required type="date" name="dueTo" id="dueTo" [(ngModel)]="ticket.dueTo" #dueToInput="ngModel">
+    <div *ngIf="ticket.dueTo < today">
+      <span class="error">Due date cannot be in the past.</span>
+    </div>
 
-  <!-- File attachment -->
-  <label>Attached files</label>
-  <div class="file-box" (click)="fileInput.click()">
-    <input type="file" #fileInput (change)="onFileSelected($event)" hidden multiple />
-    <span *ngIf="files.length === 0">+</span>
-    <ul *ngIf="files.length > 0">
-      <li *ngFor="let file of files">{{ file.name }}</li>
-    </ul>
-  </div>
 
-  <!-- Buttons -->
-  <div class="actions">
-    <button class="send" (click)="setTicket()">Send</button>
-    <button class="abandon" (click)="abandon()">Abandon</button>
-  </div>
+    <!-- Assigned to -->
+    <label class="form-label">Assigned to
+    <div class="assigned">
+      <select required [(ngModel)]="dept" name="dept" (change)="getE(dept)" >
+        <option value="">Department</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+
+      <select required [(ngModel)]="ticket.assignedTo" name="emp">
+        <option class="" value="">Employees</option>
+        <option *ngFor="let emp of employees" [value]="emp">{{ emp }}</option>
+      </select>
+    </div></label>
+
+    <!-- File attachment 
+    <label>Attached files</label>
+    <div class="file-box" (click)="fileInput.click()">
+      <input type="file" #fileInput (change)="onFileSelected($event)" hidden multiple />
+      <span *ngIf="files.length === 0">+</span>
+      <ul *ngIf="files.length > 0">
+        <li *ngFor="let file of files">{{ file.name }}</li>
+      </ul>
+    </div> -->
+
+    <!-- Buttons -->
+    <div class="actions">
+      <button type="submit" class="btn-check send" (click)="sendT()">Send</button>
+      <button type="reset" class="btn-danger abandon" (click)="abandon()">Abandon</button>
+    </div>
+  </form>
 </div>
   

@@ -1,8 +1,15 @@
+const express = require('express');
 const router = express.Router();
 
-const get = require('../controllers/empGet');
-const post = require('../controllers/empPost');
+const getO = require('../controllers/empGet');
+const getM=require('../controllers/empSget');
 
-router.get('/',get);
-router.post('/', post);
+//const post = require('../controllers/empPost');
+
+router.get('/id/:id',getO);
+router.get('/department/:d',getM);
+
+//router.post('/', post);
+
+module.exports=router;
 

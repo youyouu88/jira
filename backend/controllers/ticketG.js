@@ -9,7 +9,9 @@ async function getTic (req,res){
         }
         res.json(data);
     }
-    catch{
-        res.status(500).json({ error: err.message }); // handle errors
+    catch(error) {
+        res.status(500).json({ error: error.message }); // handle errors
     }
 }
+
+module.exports=getTic;

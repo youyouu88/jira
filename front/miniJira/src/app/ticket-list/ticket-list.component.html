@@ -1,9 +1,30 @@
-<header></header>
+<app-header></app-header>
 <div class="container">
   <ng-container *ngIf="Tickets; else noTickets">
+    
     <div class="container-tiket">
-      <div *ngFor="let tt of Tickets" (click)="allerVersTicket(ticket.idT)">
-        
+      <div *ngFor="let tt of Tickets" (click)="allerVersTicket(tt.idT)">
+
+        <div class="ticket-item">
+          <div class="ticket-header">
+            <h2 class="ticket-title">{{tt.title}}</h2>
+
+            <div class="status-indicator" 
+              [ngClass]="{'status-in-progress':st === 'In Progress',
+              'status-pending':st === 'Open',
+              'status-completed':st === 'Done'}">
+            </div>  
+          </div>
+
+          <p class="ticket-description">{{tt.description}}</p>
+
+          <div class="ticket-footer">
+            <div class="user-info">
+              <span class="user-name">{{tt.assignedBy}}</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </ng-container>

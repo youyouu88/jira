@@ -1,28 +1,29 @@
-<header></header>
+<app-header></app-header>
 <div class="container">
     <div class="title">Due soon : </div>
     <div class="container">
         <div id="bb" class="card mb-3" 
         *ngFor="let ticket of tickets"
-        [ngClass]="{'border-success': ticket.status === 'done',
-        'border-warning': ticket.status === 'in-progress',
-        'border-danger': ticket.status === 'pending'}" >
+        [ngClass]="{'border-ip': ticket.status === 'In Progress',
+        'border-o': ticket.status === 'Open'}" >
         
-            <div class="card-body">
-                <h5 class="card-title">Connexion au réseau</h5>
-
+            <div class="card-body" (click)="allerVersTicket(ticket.idT)" >
+                <h5 class="card-title">{{ticket.title}}</h5>
+                <div class="card-subtitle">
+                    <h5>Due to : {{ticket.dueTo}}</h5>
+                </div>
                 <div class="d-flex align-items-center mb-2">
-                <img id="img"
+                <!--img id="img"
                     [src]="" 
                     alt="User" 
                     class="rounded-circle me-2" 
-                >
+                -->
                 <span>{{ ticket.assignedTo }}</span>
                 </div>
 
                 <p class="card-text">
                 <strong>Description :</strong><br>
-                {{ ticket.desc }}
+                {{ ticket.description }}
                 </p>
             </div>
         </div>

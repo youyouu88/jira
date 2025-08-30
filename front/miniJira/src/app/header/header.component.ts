@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router} from '@angular/router';
+
 @Component({
   selector: 'app-header',
+  standalone : true,
   imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
+
 export class HeaderComponent {
   router! : Router;
   importerTickets(status:string){
-    this.router.navigate(['/tickets',status])
+    this.router.navigate(['/ticket/status',status])
   }
   seep(){
     this.router.navigate(['/userProfile'])
